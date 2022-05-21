@@ -26,8 +26,8 @@ int ff();
 typedef unsigned char byte;
 
 byte far *VGA=(byte far *)0xA0000000L;
-int x;
-int  y;
+int x=100;
+int  y=100;
 #define SETPIX(x,y,c) *(VGA+(x)+(y)+height)=c
 #define GETPIX(x,y,c) *(VGA+(x)+(y)*height)=c
 #define TARGPIX(targx,targy,c) *(VGA+(targx)+(targy)*320)=c
@@ -36,8 +36,8 @@ int  y;
 //#define MAX(x,y) ((x) > (y) ? (x) : (y))
 //#define MIN(x,y) ((x) < (y) ? (x) : (y))
   int i,k,l,c,o,z,p,s,move;
-  int xtrig;
-  int ytrig;
+  int xtrig=100;
+  int ytrig=100;
   int r,flat;
   int ol=0;
 int sc;
@@ -234,6 +234,22 @@ if (null == 200){
 	    null=0;
 }
 		  }
+
+
+void moving(){
+	 x=x+o;
+y=y+r;
+	 y=y+k;
+k=k*z;
+
+
+
+
+
+
+}
+
+
 void bullet()    {
 
 
@@ -297,15 +313,18 @@ int main(){
 //xtrig=xtrig*tri;
 //ytrig=ytrig*tri;
 //  colli();
-if (y>180){y=180;}
+moving();
+
+
+if (y>=180){r=-(r);}
 if (k>1){k=1;}
-if (x>310){x=310;}
+if (x>=310){o=-(o);}
 //if (x>10){xtrig--;}
 if (tri>=4){tri=2;}
 //if (o==1 && x>140 ){xscroll++;}
 //if (o==-1){xscroll--;}
-if(y<10){y=10;}
- if (x<10){x=10;}
+if(y<=10){r=-(r); }
+ if (x<=10){o=-(o);}
 //if (z>0){z=0;}
 if (ytrig>180){ytrig=180;}
 if (co>10){co=1;}
@@ -330,11 +349,12 @@ xscroll++;
 
 scoreboard();
 
-y=y+k;
-k=k*z;
+//y=y+k;
+//k=k*z;
 
-x=x+o;
-y=y+r;
+//x=x+o;
+//y=y+r;
+
    //	if (xtrig==0){
 		     // GETPIX(sc,190,3);
 
@@ -376,7 +396,7 @@ caar();
 chara(tri);
 
 //printf (s,"xtrig",xtrig);
-clsc(7);
+clsc(0);
 //tri++;
 
 if( x==xtrig/2 & y==ytrig/2|
@@ -433,7 +453,7 @@ ytrig=y+tri;	       //	printf(s, "r",s);
 	case 0x48: /* up arrow */
 	     r=r-1;
 	 //  y=y-5;
-	  k--;
+	 // k--;
 	   z=z-1;
 	  // o=0;
 	  //strcpy(s, "up arrow");
@@ -459,8 +479,8 @@ ytrig=y+tri;	       //	printf(s, "r",s);
 
 	case 0x50: /* down arrow */
 		   o=0;
-		k=k++;
-		z=z++;
+	      //	k=k++;
+	      //	z=z++;
 		  r=1;
        //	  y=y+5;
 	  //strcpy(s, "down arrow");
