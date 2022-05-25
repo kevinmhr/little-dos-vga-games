@@ -1,4 +1,4 @@
-// dragchase by keyvan mehrbakhsh 2022
+// bugger by keyvan mehrbakhsh 2022
 // try too shoot before the red stick below gets to the yellow sign.
 
 
@@ -270,11 +270,7 @@ void clsc(int opaq){
 
     GETPIX (c,l,opaq
     );
-
-  //  GETPIX (c,l,0);
-//     GETPIX (c,l,0);
-
-       //	charac[l]=charac[l+1*y];
+ 
       }}
 
 
@@ -303,7 +299,7 @@ if (null == 200){
 
 
 
-	     // charac[l]=charac[l+key]+1;
+	     
 
 
 
@@ -327,7 +323,7 @@ k=k*z;
 
 }
 
-
+ 
 void bullet()    {
 
 
@@ -335,8 +331,7 @@ void bullet()    {
 		 if (ol ==     3)
 			    {
 
-			       //	bullx=x;
-			 //   bully=y;
+			 
 
 			     for(l=0;l<200;l++){
 			     // xscroll--;
@@ -351,7 +346,7 @@ void bullet()    {
 
 			BULLETPIX(bullx+l, bully,3  );
 
-			//   colli();
+			 
 
 
 			BULLETPIX((bullx+l)-2, bully,0  );
@@ -397,12 +392,12 @@ if (tri>=4 ){tri--;}
 
 if(y<=10){r=-(r); }  if(y<=0){y=o; }
  if (x<=10){o=-(o);}  if (x<=0){x=0;}
-//if (z>0){z=0;}
+ 
 if (ytrig[tri]>180){ytrig[tri]=0;xtrig[tri]=xtrig[x]*30; sc=sc-10;}
 if (co>10){co=1;}
 yscroll++;
 if( sc<=1){sc=1;}
-//if (xtrig<0){xtrig=0; }
+ 
 if (yscroll>=190){yscroll==0;}
 
 if (xscroll>=310){xscroll==10; }
@@ -413,13 +408,12 @@ if (xtrig[tri]<10){xtrig[tri]=10; }
 if (ytrig[tri]<10){ytrig[tri]=10; }
 
 if (sc==400){ clsc(3);}
-//if (y == ytrig && x == xtrig){ snd(); co=co+1;null=200;  }
-//x++;
+ 
 
 
 ytrig[tri]++;
 
-//clsc(0);
+ 
 
 scoreboard();
 chara(tri);
@@ -437,31 +431,27 @@ caar();
     GETPIX(50+sc,192,4);
 
 
-	     //	sc=sc+5;
-	  //  xtrig=320;
+	  
 
 
-//null=0;
+ 
 
     GETPIX(150,190,6);
     GETPIX(150,191,6);
     GETPIX(150,192,6);
-
-//      }
+ 
 chara(tri);
   default_scene();
     default_scene_bg();
 bullet();
-//ytrig[tri]++;
-//icon();
+ 
 
 
 tri++;
 
 clsc(0);
 
-
-//default_scene();
+ 
 
 
 
@@ -498,10 +488,9 @@ if(
 
 {co++; snd();delay(4);sc=sc+10;clsc(4);ytrig[tri]=0; xtrig[tri]=x+y*2;  }
 
-//tri=tri+1;
+ 
   chara(tri);
-//  default_sc
-// ytrig[tri]++;
+ 
  nosound();
 if (tri>=3){tri=1;}
 
@@ -511,9 +500,7 @@ if (tri>=3){tri=1;}
     if(kbhit()) {
 
 
-
-
-//ytrig=y+tri;	       //	printf(s, "r",s);
+ 
        tri=tri+1;
        kc=getch();
       if( kc == (char)0 ) {
