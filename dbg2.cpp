@@ -35,7 +35,7 @@ int  y=150;
 
 //#define MAX(x,y) ((x) > (y) ? (x) : (y))
 //#define MIN(x,y) ((x) < (y) ? (x) : (y))
-  int i,k,l,c,o,z,p,s,move;
+  int i,k,l,c,o,z,p,s,move,t;
 //  int xtrig[]={2,4,6,8,10,12,14,16,18,20};
 //  int ytrig[]={2,4,6,8,10,12,14,16,18,20};
 
@@ -149,22 +149,22 @@ void snd()
    for (int snd=1;snd<40;snd++){
    sound((1000*iconx[snd]));
    // delay(1);
-   co=co+1;
+//   co=co+1;
  }  }
 
 }
 void default_scene_bg()
 		       {
-	     for (int cari=0;cari<10;cari++){
-	   for (int t=0;t<640;t++){
+	    // for (int cari=0;cari<10;cari++){
+	   for (t=0;t<50;t++){
 
 
 	     // GETPIX(car[(t+x)/30]+icony[(t+x)/30]+100,car[(t+y)/30]+icony[(t+y)/30]+100,iconx[1+t]);
-
-
-	      GETPIX(charax[(t+x)/4]+charay[(t+x)/4]+10,charax[(t+y)/3]+charay[(t+y)/3]+10,charax[1+t]);
-
-			      }
+	      GETPIX(t,t,3);
+	      GETPIX((-t)+320,t,3);
+	      GETPIX((-t)+320,(-t)+200,3);
+	      GETPIX((t),(-t)+200,3);
+			 //     }
 				   }
 
 }
@@ -173,14 +173,19 @@ void default_scene_bg()
 void default_scene()
 		       {
 
-	   for (int t=0;t<80;t++){
+	   for (int t=0;t<4+sc;t++){
+	   for (key=0;key<3;key++){
 
 
 
-
-	      GETPIX(bally[(t/2)+x]+x,ballx[(t/2)+y]+y,bally[1+tri]);
+	      GETPIX(ballx[t+sc]+(x)^key,bally[t+sc]+(y)^key,bally[t]);
+	      GETPIX(ballx[key]+x,bally[key]+y,ballx[t]);
+				//key++;
+			  // if (key==40){key==1;}
 
 			      }
+			    }
+
 
 }
 void caar(){
@@ -189,7 +194,7 @@ void caar(){
 
 	 for (int carp=0;carp<20;carp++){
 	 for (int cari=0;cari<20;cari++){
-		    for (int t=0;t<20;t++){
+		    for (int t=0;t<30;t++){
 
 
 	    //  GETPIX(ballx[cari]+xscroll, bally[carp+l+l+abs(sc)]+y,car[3+x] );
@@ -201,7 +206,9 @@ void caar(){
 	      GETPIX(xscroll+carp*10+x,yscroll+cari*10+y,1);
 		      GETPIX(xscroll*carp,yscroll^tri,4+tri);
 	      GETPIX(xscroll+cari*10+x,yscroll+cari*10+y,1);
-
+	     // GETPIX(carp+cari+(int)
+	     // tan(yscroll+carp)*100+sc,cari+(int)tan(yscroll+carp+cari)*100+sc,sc);
+		     // GETPIX(chix[carp^cari]+yscroll^cari,chiy[cari^carp]+yscroll^carp,cari);
 
 
 
@@ -212,7 +219,7 @@ void chara(tri)
 		       {
 
 	    for (int carp=0;carp<40;carp++){
-	  //  for (int t=0;t<2;t++){
+	    for (int t=0;t<10;t++){
 		    // if (  x == car[cari]+xscroll && y == car[carp]+xscroll ){
 
 			// snd();
@@ -233,7 +240,14 @@ void chara(tri)
 			GETPIX( chix[carp]+xtrig[tri], chiy[carp]+ytrig[tri]+1, tri );
 		       GETPIX( iconx[carp]+xtrig[tri], icony[carp]+ytrig[tri]+1, tri );
 
-		       //		 }
+
+
+
+			       GETPIX( charax[carp]+xtrig[tri]^tri, charay[carp]+ytrig[tri]^tri, tri );
+		       GETPIX( charax[carp]+xtrig[tri]^tri, charay[carp]+ytrig[tri]^tri, tri );
+
+
+			       }
 
 			       }
 
@@ -269,7 +283,7 @@ void clsc(int opaq){
   for(c=0;c<320;c++){
 
 
-    GETPIX (c,l,opaq
+    GETPIX (c,l,co
     );
 
   //  GETPIX (c,l,0);
@@ -399,7 +413,7 @@ if (tri>=40 ){tri=1;}
 if(y<=10){r=-(r); }  if(y<=0){y=o; }
  if (x<=10){o=-(o);}  if (x<=0){x=0;}
 //if (z>0){z=0;}
-if (ytrig[tri]>175){ytrig[tri]=0;xtrig[tri]=xtrig[x]*30; sc=sc-3;}
+if (ytrig[tri]>175){ytrig[tri]=0;xtrig[tri]=xtrig[x]*30; sc=sc-1;}
 if (co>10){co=1;}
 yscroll++;
 
@@ -415,11 +429,11 @@ if (ytrig[tri]<10){ytrig[tri]=10; }
 
 
 if (sc>=1000){ clsc(0);}
-if (sc<=0 ){ printf (" GAMEOVER " ,s);}
+//if (sc<=0 ){ printf (" GAMEOVER " ,s);}
 //if (y == ytrig && x == xtrig){ snd(); co=co+1;null=200;  }
 //x++;
-
-
+t++;
+key++;
 ytrig[tri]++;
 
 //clsc(0);
@@ -427,7 +441,7 @@ ytrig[tri]++;
 scoreboard();
 chara(tri);
 
-caar();
+
 
 
 
@@ -451,17 +465,17 @@ caar();
     GETPIX(150,192,6);
 
 //      }
-
+if (sc<=1){sc==1;}
   default_scene();
     default_scene_bg();
 //bullet();
-//ytrig[tri]++;
+ytrig[tri]++;
 //icon();
 
 //ytrig[tri]++;
 
+caar();
 
-clsc(0);
 
 //default_scene();
 
@@ -498,18 +512,21 @@ if(
 )
 
 
-{co++; snd();sc=sc+10;ytrig[tri]--; xtrig[tri]=x+y*2;tri=tri-1;y=y+1;  }
+{co++; snd();sc=sc+10;ytrig[tri]--; xtrig[tri]=x+y*2;tri=tri-1;y=y+1;t=t/20;  }
+if (sc<=1){sc=1;key=key*100000;}
 tri++;
 tri++;
-//tri++;
+tri++;
   chara(tri);
 //  default_sc
 //ytrig[tri]++;
  nosound();
+
+clsc(0);
 //
 //tri=10;
 //ytrig[tri]++;
-if (tri>=20){tri=1;}
+if (tri>=10){tri=1;}
 chara(tri);
 
     if(kbhit()) {
