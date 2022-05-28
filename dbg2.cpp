@@ -428,7 +428,7 @@ if (xtrig[tri]<10){xtrig[tri]=10; }
 if (ytrig[tri]<10){ytrig[tri]=10; }
 
 
-if (sc>=1000){ clsc(0);}
+
 //if (sc<=0 ){ printf (" GAMEOVER " ,s);}
 //if (y == ytrig && x == xtrig){ snd(); co=co+1;null=200;  }
 //x++;
@@ -514,6 +514,7 @@ if(
 
 {co++; snd();sc=sc+10;ytrig[tri]--; xtrig[tri]=x+y*2;tri=tri-1;y=y+1;t=t/20;  }
 if (sc<=1){sc=1;key=key*100000;}
+if (sc>=1000){sc=10000;}
 tri++;
 tri++;
 tri++;
